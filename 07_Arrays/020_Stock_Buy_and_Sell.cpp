@@ -1,16 +1,46 @@
-#include <bits/stdc++.h>
+// class Solution {
+// public:
+//     int maxProfit(vector<int>& prices) {
+//         int n = prices.size();
+//         int maxp = INT_MIN;
+//         int s = 0;
+//         for(int i = 0 ; i < n ; i++){
+//             for(int j = i+1 ; j < n ; j++){
 
-using namespace std;
+//                 s = prices[j] - prices[i];
+//                 maxp = max(maxp , s);
+//             }
+//         }
+//         if(maxp < 0){
+//             return 0;
+//         }
+//         else{return maxp;}
+//     }
+// };
 
-class Solution{
+class Solution {
 public:
+    // Function to calculate maximum profit using single pass
+    int maxProfit(vector<int>& prices) {
+        // Initialize the minimum price to a large number
+        int minPrice = INT_MAX;
 
+        // Initialize the maximum profit to 0
+        int maxProfit = 0;
+
+        // Traverse each price in the array
+        for (int price : prices) {
+            // If current price is less than minPrice, update minPrice
+            if (price < minPrice) {
+                minPrice = price;
+            }
+            // Else calculate profit and update maxProfit if it's greater
+            else {
+                maxProfit = max(maxProfit, price - minPrice);
+            }
+        }
+
+        // Return the maximum profit found
+        return maxProfit;
+    }
 };
-
-int main() {
-
-    Solution s;
-
-    s.name();
-
-}

@@ -1,16 +1,28 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-class Solution{
+class Solution {
 public:
+    int longestConsecutive(vector<int>& nums) {
+        int n = nums.size();
 
+        sort(nums.begin() , nums.end());
+
+        int maxi = 1;
+        int c = 1;
+
+        if(n==0 ){return 0;}
+
+        for(int i = 1 ; i <  n ; i++){
+
+
+            if(nums[i] == nums[i-1] + 1){
+                c ++;
+                maxi = max(maxi,c) ;
+            }
+
+            if(nums[i] > nums[i-1]+1 ){
+                c = 1 ;
+                
+            }
+    }      
+         return maxi;
+    }
 };
-
-int main() {
-
-    Solution s;
-
-    s.name();
-
-}
