@@ -1,16 +1,32 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-class Solution{
+/*
+class ListNode {
 public:
+    int data;
+    ListNode* prev;
+    ListNode* next;
 
+    ListNode(int val) : data(val), prev(nullptr), next(nullptr) {}
 };
+*/
 
-int main() {
+class Solution {
+public:
+    ListNode* reverseDLL(ListNode* head) {
+        // Your code goes here
+        if(head == NULL || head-> next == NULL){
+            return head;
+        }
 
-    Solution s;
+        ListNode* curr = head;
 
-    s.name();
+        while(curr != NULL){
+            ListNode* temp = curr->next;
+            curr->next = curr->prev;
+            curr->prev = temp;
 
-}
+            head = curr;
+            curr = temp;
+        }
+    return head;
+    }
+};

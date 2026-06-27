@@ -1,16 +1,42 @@
-#include <bits/stdc++.h>
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
 
-using namespace std;
-
-class Solution{
+ //Iteratively:::::::::::::::::::::::::::::::::::::::::
+class Solution {
 public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* curr = head;
+        ListNode* prev = NULL;
 
+        while(curr != NULL){
+            ListNode* nexxt = curr->next;
+            curr->next = prev;
+
+            prev = curr;
+            curr = nexxt;    
+        }
+        head = prev;
+        return head;
+    }
 };
 
-int main() {
+//RECURSIVLY::::::::::::::::::::::::::::::::::::::::::
 
-    Solution s;
+// /*
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
 
-    s.name();
 
-}
+    }
+};
+
+// */
