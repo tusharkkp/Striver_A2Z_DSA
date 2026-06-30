@@ -1,16 +1,10 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-class Solution{
+class Solution {
 public:
-
+    void swap(int &a, int &b) {
+        // Your code goes here
+        a =a^b;
+        b=a^b;
+        a= a^b;
+        return;
+    }
 };
-
-int main() {
-
-    Solution s;
-
-    s.name();
-
-}
